@@ -14,8 +14,8 @@ public class Race {
         cars.forEach(Car::move);
 	}
 
-    public void forEach(Predicate predicate) {
-        cars.forEach(car -> predicate.predicate(car.getName(), car.getPosition()));
+    public void forEach(RaceResultCallback predicate) {
+        cars.forEach(car -> predicate.call(car.getName(), car.getPosition()));
     }
 
     public List<String> getWinnersName() {
@@ -27,9 +27,5 @@ public class Race {
             .filter(car -> car.locates(maxPosition))
             .map(Car::getName)
             .collect(Collectors.toList());
-    }
-
-    public interface Predicate {
-        void predicate(String name, int position);
     }
 }
