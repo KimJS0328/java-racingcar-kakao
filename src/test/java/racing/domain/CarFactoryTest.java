@@ -10,16 +10,16 @@ import org.junit.jupiter.api.Test;
 import racing.infra.RandomCarEngine;
 
 public class CarFactoryTest {
-	@Test
-	void 유효한_이름들() {
+    @Test
+    void 유효한_이름들() {
 
-		CarFactory factory = new CarFactory(new RandomCarEngine());
-		List<Car> cars = factory.fromCsvNames("vec,amber,sage");
+        CarFactory factory = new CarFactory(new RandomCarEngine());
+        List<Car> cars = factory.fromCsvNames("vec,amber,sage");
 
-		List<String> names = cars.stream()
-			.map(Car::getName)
-			.collect(Collectors.toList());
+        List<String> names = cars.stream()
+            .map(Car::getName)
+            .collect(Collectors.toList());
 
-		assertThat(names).containsExactlyInAnyOrder("vec", "amber", "sage");
-	}
+        assertThat(names).containsExactlyInAnyOrder("vec", "amber", "sage");
+    }
 }
