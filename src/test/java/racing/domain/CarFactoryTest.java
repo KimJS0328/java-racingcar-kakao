@@ -7,13 +7,13 @@ import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
-import racing.infra.RandomCarEngine;
+import racing.infra.RandomNumberGenerator;
 
 public class CarFactoryTest {
     @Test
     void 유효한_이름들() {
 
-        CarFactory factory = new CarFactory(new RandomCarEngine());
+        CarFactory factory = new CarFactory(new RandomNumberGenerator());
         List<Car> cars = factory.fromCsvNames("vec,amber,sage");
 
         List<String> names = cars.stream()

@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 public class CarFactory {
 
-    private final CarEngine carEngine;
+    private final NumberGenerator carEngine;
 
-    public CarFactory(CarEngine carEngine) {
+    public CarFactory(NumberGenerator carEngine) {
         this.carEngine = carEngine;
     }
 

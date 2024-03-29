@@ -1,19 +1,21 @@
 package racing.domain;
 
 public class Car {
-
+    public static final int MOVE_THRESHOLD = 4;
     private final CarName name;
-    private final CarEngine carEngine;
+    private final NumberGenerator generator;
     private int position;
 
-    public Car(String name, CarEngine carEngine) {
+    public Car(String name, NumberGenerator generator) {
         this.name = new CarName(name);
-        this.carEngine = carEngine;
+        this.generator = generator;
         this.position = 0;
     }
 
     public void move() {
-        position += carEngine.getSpeed();
+        if (generator.generate() >= MOVE_THRESHOLD) {
+            position += 1;
+        }
     }
 
     public int getPosition() {
